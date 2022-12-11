@@ -8,6 +8,7 @@ export function AppWrapper(props) {
   const { children } = props;
 
   const [select,setSelect] = useState('BoxGeometry');
+  const [position,setPosition] = useState({x:0,y:0,z:0});
 
   const [geometry_data,setGeometry_data] = useState(Geometry_data[select]);
 
@@ -20,13 +21,19 @@ export function AppWrapper(props) {
     setGeometry_data(value)
   }
 
+  const updatePosition = (value) =>{
+    setPosition(value);
+  }
+
   return (
     <AppContext.Provider 
         value={{
           select: select,
           geometry_data: geometry_data,
           onChangeSelect: onChangeSelect,
-          updateGeometry: updateGeometry
+          updateGeometry: updateGeometry,
+          position: position,
+          updatePosition: updatePosition
         }}
     >
       {children}

@@ -9,7 +9,7 @@ extend({ OrbitControls });
 const OrbitController: React.FC = () => {
     const controlsRef : any = useRef<OrbitControls>();
     const { camera, gl } = useThree();
-  
+
     useFrame(() => {
       controlsRef.current?.update()
     });

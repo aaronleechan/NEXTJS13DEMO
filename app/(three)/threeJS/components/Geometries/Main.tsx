@@ -4,6 +4,8 @@ import { Canvas,ReactThreeFiber,useFrame, useThree } from '@react-three/fiber';
 import { DoubleSide } from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import OrbitController from '../../control/orbitController';
+import { useAppContext } from '../../../../context/AppContext';
+
 
 function Geometry(props: JSX.IntrinsicElements['mesh']) {
     
@@ -45,15 +47,19 @@ const Main = (props: any) =>{
 
     const { children } = props;
 
+    const { position } = useAppContext();
+
+    const getPosition: any = Object.keys(position).map((k: any) => position[k]);
+
     return(
         <Canvas
             style ={{background: 'black'}}
-            camera={{position: [3, 3, 3]}}
+            camera={{position: [10, 10, 10]}}
         >
             <ambientLight />
             <axesHelper args={[10]}/>
             <OrbitController/>
-            <Geometry position={[0, 0, 0]} children={children}/>
+            <Geometry position={getPosition} children={children}/>
         </Canvas>
     )
 }

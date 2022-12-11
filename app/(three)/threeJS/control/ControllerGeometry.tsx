@@ -1,6 +1,6 @@
 import { useState } from "react";
 import _ from 'lodash';
-import { useAppContext } from "../../context/AppContext";
+import { useAppContext } from "../../../context/AppContext";
 
 const ControllerGeometry = (props: any) => {
 
