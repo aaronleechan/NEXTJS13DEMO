@@ -1,8 +1,7 @@
-import { useState } from "react";
 import _ from 'lodash';
 import { useAppContext } from "../../../context/AppContext";
 
-const ControllerGeometry = (props: any) => {
+const ControllerGeometry = () => {
 
     const { geometry_data,updateGeometry } = useAppContext();
 
@@ -21,7 +20,7 @@ const ControllerGeometry = (props: any) => {
                     return(
                         <li key={k}>
                             <label>{k}</label>
-                            <input name={k} type="range" min={geometry_data[k].min} max={geometry_data[k].max} value={geometry_data[k].value} onChange={sliderOnChange}/>
+                            <input name={k} type="range" min={geometry_data[k].min} max={geometry_data[k].max} value={geometry_data[k].value} step={geometry_data[k].step || 0.1} onChange={sliderOnChange}/>
                             <a>{geometry_data[k].value}</a>
                         </li>
                     )

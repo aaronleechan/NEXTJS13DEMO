@@ -1,8 +1,6 @@
 import * as THREE from 'three';
 import React , {useRef, useState} from 'react'
 import { Canvas,ReactThreeFiber,useFrame, useThree } from '@react-three/fiber';
-import { DoubleSide } from 'three';
-import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls';
 import OrbitController from '../../control/orbitController';
 import { useAppContext } from '../../../../context/AppContext';
 
@@ -53,7 +51,6 @@ const Main = (props: any) =>{
 
     return(
         <Canvas
-            style ={{background: 'black'}}
             camera={{position: [10, 10, 10]}}
         >
             <ambientLight />

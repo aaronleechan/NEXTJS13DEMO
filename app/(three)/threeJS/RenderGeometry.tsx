@@ -1,4 +1,3 @@
-import { useEffect } from 'react';
 import * as FIBERTHREE from './components/Geometries';
 import { useAppContext } from '../../context/AppContext';
 
@@ -14,6 +13,18 @@ const RenderGeometry = (props: any) =>{
                 return <FIBERTHREE.BoxGeometry args={getArgs}/>
             case 'CapsuleGeometry':
                 return <FIBERTHREE.CapsuleGeometry args={getArgs}/>
+            case 'CircleGeometry':
+                return <FIBERTHREE.CircleGeometry args={getArgs}/>
+            case 'ConeGeometry':
+                return <FIBERTHREE.ConeGeometry args={getArgs}/>
+            case 'CylinderGeometry':
+                return <FIBERTHREE.CylinderGeometry args={getArgs}/>
+            case 'DodecahedronGeometry':
+                return <FIBERTHREE.DodecahedronGeometry args={getArgs}/>
+            case 'TorusGeometry':
+                return <FIBERTHREE.TorusGeometry args={getArgs}/>
+            case 'TorusKnotGeometry':
+                return <FIBERTHREE.TorusKnotGeometry args={getArgs}/>
             default: 
                 return <FIBERTHREE.BoxGeometry args={getArgs}/>
         }

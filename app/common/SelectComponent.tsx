@@ -1,17 +1,22 @@
 import { useAppContext } from '../context/AppContext'
-
-// type selectComponentProps = {
-//     onChange: (value: string) => void;
-// }
+import {Geometry_data} from '../data/geometryData'
 
 const SelectComponent = () =>{
 
     const {onChangeSelect} = useAppContext();
 
+    let getKeys = Object.keys(Geometry_data);
+
     return(
         <select onChange={(e)=>onChangeSelect(e.target.value)} >
-            <option value='BoxGeometry'>Box Geometry</option>
-            <option value='CapsuleGeometry'>Capsule Geometry</option>
+            {
+                getKeys && getKeys.map((k: any) => {
+                    let title = k.split(/(?=[A-Z])/).join(" ")
+                    return(
+                        <option key={k} value={k}>{title}</option>
+                    )
+                })
+            }
         </select>
     )
 }
