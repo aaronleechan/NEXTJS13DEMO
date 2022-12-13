@@ -5,6 +5,8 @@ const AppContext = createContext();
 
 export function AppWrapper(props) {
 
+  let testing = false;
+
   const { children } = props;
 
   const [select,setSelect] = useState('BoxGeometry');
@@ -33,7 +35,8 @@ export function AppWrapper(props) {
           onChangeSelect: onChangeSelect,
           updateGeometry: updateGeometry,
           position: position,
-          updatePosition: updatePosition
+          updatePosition: updatePosition,
+          testing: testing
         }}
     >
       {children}

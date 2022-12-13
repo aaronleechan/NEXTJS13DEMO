@@ -1,6 +1,6 @@
 import * as THREE from 'three';
 import React , {useRef, useState} from 'react'
-import { Canvas,ReactThreeFiber,useFrame, useThree } from '@react-three/fiber';
+import { Canvas,useFrame } from '@react-three/fiber';
 import OrbitController from '../../control/orbitController';
 import { useAppContext } from '../../../../context/AppContext';
 

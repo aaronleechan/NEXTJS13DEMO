@@ -30,7 +30,7 @@
     "**/*.tsx",
     "app/page.tsx",
     ".next/types/**/*.ts"
-  ],
+, "app/(metaverse_hashLips)/metaverse/page.js"  ],
   "exclude": [
     "node_modules"
   ]
