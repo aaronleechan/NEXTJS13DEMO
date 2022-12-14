@@ -1,8 +1,11 @@
 "use client";
-import { useEffect } from "react";
-import { Canvas, useThree } from '@react-three/fiber'
-import AnimatedBox from './components/AnimatedBox';
-import { OrbitControls, Stats  } from "@react-three/drei";
+import { Canvas } from '@react-three/fiber';
+import Ground from './components/Ground';
+import Lights from './components/Lights';
+import { OrbitControls , Stats } from "@react-three/drei";
+import { useLoader } from '@react-three/fiber';
+import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
+import Tree from './components/Tree';
 
 
 const HashLips = () => {
@@ -10,13 +13,12 @@ const HashLips = () => {
   let isTesting = true;
 
   return(
-    <div style={{
-      height: '60vh',
-      width: '100vw',
-    }}>
+    <div style={{height: '60vh', width: '100vw'}}>
 
-      <Canvas className="container">
-        { isTesting && 
+      <Canvas>
+        
+        { 
+          isTesting && 
           <>
             <Stats/>
             <axesHelper visible={isTesting} args={[3]}/>
@@ -25,12 +27,12 @@ const HashLips = () => {
         }
 
         <OrbitControls/>
-        <ambientLight intensity={0.1} />
-        <directionalLight color="red" position={[0, 0, 5]} />
-        <AnimatedBox isTesting={isTesting}/>
+        <Tree boundry={10} count={20}/>
+        <Lights/>
+        <Ground/>
       </Canvas>
+      
     </div>
-
   )
 };
 
