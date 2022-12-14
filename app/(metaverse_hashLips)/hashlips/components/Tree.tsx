@@ -81,7 +81,7 @@ const Tree: React.FC<props> = ({ boundry,count }) => {
     useEffect(()=>{
         const tempTree: treeType[] = [];
         for(let i = 0; i < count; i++){
-            tempTree.push({ position: {x: 0, z: 0}, box: 1})
+            tempTree.push({ position: {x: 0, y: 0, z: 0}, box: 1})
         }
         updatePosition(tempTree,boundry)
     },[boundry,count])
