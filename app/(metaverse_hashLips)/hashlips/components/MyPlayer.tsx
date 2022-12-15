@@ -2,6 +2,7 @@ import { OrbitControls, useAnimations, useGLTF } from "@react-three/drei";
 import { useFrame, useThree } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import * as THREE from "three";
+import { Mesh } from "three";
 import { useInput } from "./hooks/useInput";
 
 let walkDirection = new THREE.Vector3();
@@ -46,7 +47,7 @@ const MyPlayer = () =>{
     model.scene.scale.set(0.5, 0.5, 0.5);
 
     const currentAction = useRef("");
-    const controlRef = useRef<typeof OrbitControls>();
+    const controlRef: any = useRef<typeof OrbitControls>();
     const camera = useThree((state)=>state.camera);
 
     const updateCameraTarget = (moveX: number, moveZ: number) => {
@@ -59,12 +60,11 @@ const MyPlayer = () =>{
             controlRef.current.target = cameraTarget;
         }
     }
-    
 
     model.scene.traverse((object)=>{
-        if(object.isMesh){
+        if ((object as Mesh).isMesh) { 
             object.castShadow = true;
-        }
+         }
     })
 
     useEffect(()=>{
