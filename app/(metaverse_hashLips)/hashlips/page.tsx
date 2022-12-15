@@ -11,7 +11,7 @@ import Tree from './components/Tree';
 
 const HashLips = () => {
 
-  let isTesting = true;
+  let isTesting = false;
 
   return(
     <div style={{height: '60vh', width: '100vw'}}>
@@ -27,8 +27,8 @@ const HashLips = () => {
           </>
         }
 
-        <OrbitControls/>
-        <Tree boundry={100} count={20}/>
+        {/* <OrbitControls/> */}
+        <Tree boundry={100} count={50}/>
         <Lights/>
         <MyPlayer/>
         <Ground/>
