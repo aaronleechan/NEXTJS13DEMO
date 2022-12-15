@@ -3,6 +3,7 @@ import { Canvas } from '@react-three/fiber';
 import Ground from './components/Ground';
 import Lights from './components/Lights';
 import { OrbitControls , Stats } from "@react-three/drei";
+import MyPlayer from './components/MyPlayer';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Tree from './components/Tree';
@@ -27,8 +28,9 @@ const HashLips = () => {
         }
 
         <OrbitControls/>
-        <Tree boundry={10} count={20}/>
+        <Tree boundry={100} count={20}/>
         <Lights/>
+        <MyPlayer/>
         <Ground/>
       </Canvas>
       
