@@ -14,9 +14,9 @@ const HashLips = () => {
   let isTesting = false;
 
   return(
-    <div style={{height: '60vh', width: '100vw'}}>
+    <div style={{height: '100vh', width: '100vw'}}>
 
-      <Canvas orthographic camera={{left: -5, right: 5, top: 5, bottom: -5, zoom: 50,}}>
+      <Canvas orthographic camera={{left: -5, right: 5, top: 5, bottom: -5, zoom: 200,}}>
 
         { 
           isTesting && 
