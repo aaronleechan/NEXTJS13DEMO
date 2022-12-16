@@ -99,9 +99,9 @@ const CubeBox = () =>{
     return(
     <Canvas
       style ={{background: 'black'}}
-      camera={{position: [3, 3, 3]}}
+      camera={{position: [1, 1, 1]}}
     >
-        <ambientLight />
+        {/* <ambientLight /> */}
         <pointLight position={[5,5,5]} intensity={3} />
         <pointLight position={[-3,-3,3]}/>
         <Controls/>

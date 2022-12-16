@@ -3,6 +3,7 @@ import React , {useRef, useState} from 'react'
 import { Canvas,useFrame } from '@react-three/fiber';
 import OrbitController from '../../control/orbitController';
 import { useAppContext } from '../../../../context/AppContext';
+import Lights from '../Lights/Lights';
 
 
 function Geometry(props: JSX.IntrinsicElements['mesh']) {
@@ -12,6 +13,8 @@ function Geometry(props: JSX.IntrinsicElements['mesh']) {
 
     const [hovered, hover] = useState(false)
     const [clicked, click] = useState(false)
+
+    console.log({" useAppContext() ": useAppContext()})
 
     useFrame(state=>{
       //ref.current.rotation.x += .01
@@ -53,7 +56,7 @@ const Main = (props: any) =>{
         <Canvas
             camera={{position: [10, 10, 10]}}
         >
-            <ambientLight />
+            <Lights />
             <axesHelper args={[10]}/>
             <OrbitController/>
             <Geometry position={getPosition} children={children}/>
