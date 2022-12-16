@@ -2,7 +2,7 @@
 import { Canvas } from '@react-three/fiber';
 import Ground from './components/Ground';
 import Lights from './components/Lights';
-import { OrbitControls , Stats } from "@react-three/drei";
+import { OrbitControls , PerspectiveCamera, Stats } from "@react-three/drei";
 import MyPlayer from './components/MyPlayer';
 import { useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
@@ -16,8 +16,8 @@ const HashLips = () => {
   return(
     <div style={{height: '60vh', width: '100vw'}}>
 
-      <Canvas>
-        
+      <Canvas orthographic camera={{left: -5, right: 5, top: 5, bottom: -5, zoom: 50,}}>
+
         { 
           isTesting && 
           <>

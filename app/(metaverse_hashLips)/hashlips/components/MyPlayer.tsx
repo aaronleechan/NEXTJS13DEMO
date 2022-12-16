@@ -12,7 +12,7 @@ let cameraTarget = new THREE.Vector3();
 
 const directionOffset = ({forward, backward, left, right}: any) => {
 
-    let directionOffset = 0;
+    let directionOffset = 0; // w
 
     if(forward){
         if(left){
@@ -22,9 +22,9 @@ const directionOffset = ({forward, backward, left, right}: any) => {
         }
     }else if(backward){
         if(left){
-            directionOffset = Math.PI / 4; // s + a
+            directionOffset = Math.PI / 4 + Math.PI / 2; // s + a
         }else if(right){
-            directionOffset = -Math.PI / 4; // s + d
+            directionOffset = -Math.PI / 4 - Math.PI / 2; // s + d
         }else{
             directionOffset = Math.PI; // s
         }
@@ -41,7 +41,7 @@ const MyPlayer = () =>{
 
     const { forward, backward, left, right, jump, shift } = useInput();
 
-    const model = useGLTF("./models/player.glb");
+    const model = useGLTF("./models/player3.glb");
     const { actions } = useAnimations(model.animations, model.scene);
 
     model.scene.scale.set(0.5, 0.5, 0.5);
@@ -53,9 +53,9 @@ const MyPlayer = () =>{
     const updateCameraTarget = (moveX: number, moveZ: number) => {
         camera.position.x += moveX;
         camera.position.z += moveZ;
-        cameraTarget.x = camera.position.x;
-        cameraTarget.z = camera.position.z;
-        cameraTarget.y = camera.position.y + 2;
+        cameraTarget.x = model.scene.position.x;
+        cameraTarget.z = model.scene.position.z;
+        cameraTarget.y = model.scene.position.y + 2;
         if(controlRef.current){
             controlRef.current.target = cameraTarget;
         }
@@ -100,21 +100,24 @@ const MyPlayer = () =>{
 
             let directionOffsetValue = directionOffset({forward, backward, left, right});
 
-            //rotate model 
+            // //rotate model 
             rotationQuarternion.setFromAxisAngle(rotateAngle, angleYCameraDirection + directionOffsetValue);
-            model.scene.quaternion.copy(rotationQuarternion);
+            model.scene.quaternion.copy(rotationQuarternion, 0.2);
 
-            //calculate direction
+            console.log({" walkDirection ": walkDirection})
+
+            // //calculate direction
             camera.getWorldDirection(walkDirection);
             walkDirection.y = 0;
             walkDirection.normalize();
             walkDirection.applyAxisAngle(rotateAngle, directionOffsetValue);
 
-            // run /walk velicity
+            // // run /walk velicity
             const velocity = currentAction.current == "running" ? 10 : 5;
 
             const moveX = walkDirection.x * velocity * delta;
             const moveZ = walkDirection.z * velocity * delta;
+
             model.scene.position.x += moveX;
             model.scene.position.z += moveZ;
             updateCameraTarget(moveX, moveZ);
