@@ -102,7 +102,7 @@ const MyPlayer = () =>{
 
             // //rotate model 
             rotationQuarternion.setFromAxisAngle(rotateAngle, angleYCameraDirection + directionOffsetValue);
-            model.scene.quaternion.copy(rotationQuarternion, 0.2);
+            model.scene.quaternion.copy(rotationQuarternion);
 
             // //calculate direction
             camera.getWorldDirection(walkDirection);
