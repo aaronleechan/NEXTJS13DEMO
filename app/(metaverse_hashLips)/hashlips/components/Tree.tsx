@@ -88,7 +88,7 @@ const Tree: React.FC<props> = ({ boundry,count }) => {
 
     return (
         <>
-            <group rotation={[0,4,0]}>
+            <group>
                 {
                         tree.map((tree,index)=>{
                             return (
