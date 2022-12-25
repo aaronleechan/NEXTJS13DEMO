@@ -33,11 +33,35 @@ const Dragable = (props: any) => {
             }
         )
 
+        constrolsRef.current.addEventListener(
+            'dragstart',
+            e => {
+                e.object.api?.mass.set(0);
+            }
+        )
+
+        constrolsRef.current.addEventListener(
+            'dragend',
+            e => {
+                e.object.api?.mass.set(1);
+            }
+        )
+
+        constrolsRef.current.addEventListener(
+            'drag',
+            e => {
+                e.object.api?.position.copy(e.object.position);
+                e.object.api?.velocity.set(0,0,0);
+            }
+        )
+
+
     },[children])
 
     return (
         <group ref={groupRef}>
-            <dragControls 
+            <dragControls
+                transformGroup = {props.transformGroup} 
                 ref={constrolsRef}
                 args={[children, camera, gl.domElement]} 
             />

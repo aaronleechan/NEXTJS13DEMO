@@ -1,19 +1,15 @@
 import { useFrame, useLoader } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
+import { useBox } from "@react-three/cannon";
 
 const Box = (props: any) =>{
 
-    const ref = useRef<THREE.Mesh>(null!)
+    // const ref = useRef<THREE.Mesh>(null!)
     const texture = useLoader(THREE.TextureLoader,'/showRoom/wood.jpg');
-
-    useFrame(()=>{
-        ref.current.rotation.x += 0.01;
-        ref.current.rotation.y += 0.01;
-    })
+    const [ref, api] = useBox(() => ({mass: 1,...props}))
 
     const handlePointerDown = (e: any) =>{
-        console.log(e);
         e.object.active = true;
         if(window.activeMesh){
             scaleDown(window.activeMesh);
@@ -43,6 +39,7 @@ const Box = (props: any) =>{
     return(
         <mesh 
             ref={ref} 
+            api={api}
             {...props}
             castShadow
             onPointerDown={handlePointerDown}

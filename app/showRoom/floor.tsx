@@ -1,11 +1,14 @@
 import { TextureLoader } from "three"
+import { useBox } from "@react-three/cannon"
 
-const Floor = () =>{
-    const texture = new TextureLoader().load('')
+const Floor = (props: any) =>{
+
+    const [ref, api] = useBox(() => ({args: [20, 1, 10],...props}))
+
     return(
-        <mesh rotation-x={Math.PI * -0.5} receiveShadow>
-                <planeBufferGeometry args={[10,10]}/>
-                <meshStandardMaterial color={"green"}/>
+        <mesh ref={ref} {...props}>
+            <boxBufferGeometry args={[20, 1, 10]}/>
+            <meshPhysicalMaterial/>
         </mesh>
     )
 }
