@@ -3,6 +3,7 @@ import React, { useRef, useState } from 'react'
 import { ReactThreeFiber, Canvas, useFrame, extend, useThree } from '@react-three/fiber'
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls'
 import { DoubleSide } from 'three';
+import { useAppContext } from '../../../context/AppContext';
 
 //Create an element that can be used with React and fetch useThree()
 extend({ OrbitControls });
@@ -96,6 +97,14 @@ function Geometry(props: JSX.IntrinsicElements['mesh']) {
 
 const CubeBox = () =>{
     
+    const { cameraPos } = useAppContext();
+
+    //  const getPosition: any = Object.keys(position).map((k: any) => position[k]);
+    // console.log({" CubeBox useAppContext ": Object.keys(cameraPos).map(v=>{return {[v]: cameraPos[v]})
+
+
+
+
     return(
     <Canvas
       style ={{background: 'black'}}

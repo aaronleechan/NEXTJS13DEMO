@@ -3,6 +3,7 @@ import React, { useState } from 'react'
 import RenderGeometry from './RenderGeometry';
 import SelectComponent from '../../common/SelectComponent';
 import ControllerGeometry from './control/ControllerGeometry';
+import CameraController from './control/cameraController';
 import { AppWrapper } from '../../context/AppContext';
 import PositionController from './control/positionController';
 import AmbientLightController from './control/ambientLightController';
@@ -38,6 +39,10 @@ const ThreeJS = () =>{
 
                     <Collapsible trigger="Ambient Light Controller ">
                         <AmbientLightController/>
+                    </Collapsible>
+
+                    <Collapsible trigger="Camera Controller">
+                        <CameraController />
                     </Collapsible>
 
                 </>

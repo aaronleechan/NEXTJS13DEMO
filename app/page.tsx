@@ -14,6 +14,10 @@ function Page() {
             <Link href={`/hashlips`} key={"hashlips"} passHref>
                 <h1>MetaVerse-HashLips</h1>
             </Link>
+            <hr/>
+            <Link href={`/showRoom`} key={"showRoom"} passHref>
+                <h1>Car Show Room</h1>
+            </Link>
         </div>
     )
 }

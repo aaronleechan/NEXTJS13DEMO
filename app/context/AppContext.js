@@ -15,6 +15,13 @@ export function AppWrapper(props) {
   const [ambientLight,setAmbientLight] = useState(true)
   const [pickLightColor,setPickLightColor] = useState("#fff")
   const [lightIntensity,setLightIntensity] = useState(1);
+  const [cameraPos,setCameraPos] = useState({x:0,y:0,z:0});
+
+  //MaterialController
+  const [meshPhysicalMaterialController,setMeshPhysicalMaterialController] = useState({
+    opacity: 1,
+    
+  })
 
   const onChangeSelect = (value) => {
     setSelect(value);
@@ -41,6 +48,14 @@ export function AppWrapper(props) {
     setLightIntensity(value);
   }
 
+  const updateCameraPos = (value) =>{
+    setCameraPos(value)
+  }
+
+  const updateMeshPhysicalMaterialController = (value )=>{
+    console.log(" ...updateMeshPhysicalMaterialController.. ",value)
+  }
+
   return (
     <AppContext.Provider 
         value={{
@@ -57,7 +72,12 @@ export function AppWrapper(props) {
           testing: testing,
 
           updateLightIntensity: updateLightIntensity,
-          lightIntensity: lightIntensity
+          lightIntensity: lightIntensity,
+          cameraPos: cameraPos,
+          updateCameraPos: updateCameraPos,
+
+          meshPhysicalMaterialController: meshPhysicalMaterialController,
+          updateMeshPhysicalMaterialController: updateMeshPhysicalMaterialController
         }}
     >
       {children}

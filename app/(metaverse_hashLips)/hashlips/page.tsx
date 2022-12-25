@@ -2,10 +2,8 @@
 import { Canvas } from '@react-three/fiber';
 import Ground from './components/Ground';
 import Lights from './components/Lights';
-import { OrbitControls , PerspectiveCamera, Stats } from "@react-three/drei";
+import { Stats } from "@react-three/drei";
 import MyPlayer from './components/MyPlayer';
-import { useLoader } from '@react-three/fiber';
-import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import Tree from './components/Tree';
 
 
