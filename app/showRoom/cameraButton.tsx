@@ -11,7 +11,7 @@ const CameraButton = () =>{
         1: {
             cameraPos: [-12,2,4],
             target: [-1,1,1],
-            name: "Object_5"
+            name: "Object_4"
         },
         //Model 3
         2: {

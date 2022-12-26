@@ -1,5 +1,6 @@
 import { useLoader } from "@react-three/fiber";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
+import * as THREE from 'three';
 
 const Model = (props: any) =>{
 
@@ -7,6 +8,14 @@ const Model = (props: any) =>{
         GLTFLoader, 
         props.path
     );
+
+    model.scene.traverse( (child: any) =>{
+        if(child.isMesh){
+            child.castShadow = true;
+            child.receiveShadow = true;
+            child.material.side = THREE.FrontSide;
+        }
+    })
 
     return(
         <primitive 

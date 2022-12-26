@@ -9,6 +9,7 @@ import { Physics } from '@react-three/cannon';
 import Cars from './cars';
 import CameraControl from './cameraControl';
 import CameraButton from './cameraButton';
+import Lights from './lights';
 
 
 const ShowRoom = () =>{
@@ -26,7 +27,7 @@ const ShowRoom = () =>{
                 camera={{position: [7, 7, 7]}}
             >
                 <CameraControl />
-                <ambientLight intensity={0.5} />
+                <Lights />
                 <OrbitControls attach='orbitControls'/>
                 <axesHelper args={[3]}/>
                 <Background />
