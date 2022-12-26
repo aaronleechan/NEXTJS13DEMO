@@ -5,6 +5,7 @@ const CameraControl = ({  }) =>{
 
 
     useFrame(({camera, scene})=>{
+        {/* @ts-ignore */} 
         if(state.activeMesh.name !== state.activeMeshName){
             state.activeMesh = scene.getObjectByName(state.activeMeshName) || {};
         }
