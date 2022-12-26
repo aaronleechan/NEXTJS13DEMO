@@ -3,7 +3,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 const Model = (props: any) =>{
 
-    const model = useLoader(
+    const model: any = useLoader(
         GLTFLoader, 
         props.path
     );

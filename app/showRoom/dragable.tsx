@@ -6,8 +6,8 @@ import { useEffect, useRef, useState } from 'react';
 extend({DragControls});
 
 const Dragable = (props: any) => {
-    const groupRef = useRef();
-    const constrolsRef = useRef();
+    const groupRef:any = useRef();
+    const constrolsRef: any = useRef();
     const [children,setChildren] = useState([]);
     const { camera, gl, scene } = useThree();
 
@@ -17,39 +17,40 @@ const Dragable = (props: any) => {
 
     useEffect(()=>{
 
-        // let controls = new THREE.OrbitControls(camera)
 
         constrolsRef.current.addEventListener(
             'hoveron',
-            e => {
+            (e:any) => {
+                {/* @ts-ignore */} 
                 scene.orbitControls.enabled = false;
             }
         )
 
         constrolsRef.current.addEventListener(
             'hoveroff',
-            e => {
+            (e:any) => {
+                {/* @ts-ignore */} 
                 scene.orbitControls.enabled = true;
             }
         )
 
         constrolsRef.current.addEventListener(
             'dragstart',
-            e => {
+            (e:any) => {
                 e.object.api?.mass.set(0);
             }
         )
 
         constrolsRef.current.addEventListener(
             'dragend',
-            e => {
+            (e:any) => {
                 e.object.api?.mass.set(1);
             }
         )
 
         constrolsRef.current.addEventListener(
             'drag',
-            e => {
+            (e:any) => {
                 e.object.api?.position.copy(e.object.position);
                 e.object.api?.velocity.set(0,0,0);
             }
@@ -60,6 +61,7 @@ const Dragable = (props: any) => {
 
     return (
         <group ref={groupRef}>
+            {/* @ts-ignore */} 
             <dragControls
                 transformGroup = {props.transformGroup} 
                 ref={constrolsRef}

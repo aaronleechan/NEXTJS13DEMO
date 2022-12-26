@@ -11,10 +11,14 @@ const Box = (props: any) =>{
 
     const handlePointerDown = (e: any) =>{
         e.object.active = true;
+        {/* @ts-ignore */} 
         if(window.activeMesh){
+            {/* @ts-ignore */} 
             scaleDown(window.activeMesh);
+            {/* @ts-ignore */} 
             window.activeMesh.active = false;
         }
+        {/* @ts-ignore */} 
         window.activeMesh = e.object;
     }
 

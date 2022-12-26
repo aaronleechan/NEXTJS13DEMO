@@ -3,7 +3,9 @@ import * as THREE from "three";
 const ColorPicker = () =>{
 
     const handleClick = (e: any) =>{
+        {/* @ts-ignore */} 
         if(!window.activeMesh) return;
+        {/* @ts-ignore */} 
         window.activeMesh.material.color = new THREE.Color(e.target.style.background);
     }
 
