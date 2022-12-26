@@ -10,7 +10,7 @@ import Cars from './cars';
 import CameraControl from './cameraControl';
 import CameraButton from './cameraButton';
 import Lights from './lights';
-
+import Effects from './effects';
 
 const ShowRoom = () =>{
 
@@ -35,6 +35,7 @@ const ShowRoom = () =>{
                     <Cars />
                     <Floor/>
                 </Physics>
+                <Effects />
            </Canvas>
         </div>
     )
