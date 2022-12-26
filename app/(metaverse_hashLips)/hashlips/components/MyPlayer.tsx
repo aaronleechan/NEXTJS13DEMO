@@ -41,7 +41,7 @@ const MyPlayer = () =>{
 
     const { forward, backward, left, right, jump, shift } = useInput();
 
-    const model = useGLTF("./models/player3.glb");
+    const model = useGLTF("./models/player.glb");
     const { actions } = useAnimations(model.animations, model.scene);
 
     model.scene.scale.set(0.5, 0.5, 0.5);

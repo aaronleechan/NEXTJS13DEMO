@@ -11,8 +11,17 @@ export function AppWrapper(props) {
 
   const [select,setSelect] = useState('BoxGeometry');
   const [position,setPosition] = useState({x:0,y:0,z:0});
-
   const [geometry_data,setGeometry_data] = useState(Geometry_data[select]);
+  const [ambientLight,setAmbientLight] = useState(true)
+  const [pickLightColor,setPickLightColor] = useState("#fff")
+  const [lightIntensity,setLightIntensity] = useState(1);
+  const [cameraPos,setCameraPos] = useState({x:0,y:0,z:0});
+
+  //MaterialController
+  const [meshPhysicalMaterialController,setMeshPhysicalMaterialController] = useState({
+    opacity: 1,
+    
+  })
 
   const onChangeSelect = (value) => {
     setSelect(value);
@@ -27,16 +36,48 @@ export function AppWrapper(props) {
     setPosition(value);
   }
 
+  const updateToggleSwitch = (value) =>{
+    setAmbientLight(value)
+  }
+
+  const updateLightColor = (value) =>{
+    setPickLightColor(value);
+  }
+
+  const updateLightIntensity = (value) =>{
+    setLightIntensity(value);
+  }
+
+  const updateCameraPos = (value) =>{
+    setCameraPos(value)
+  }
+
+  const updateMeshPhysicalMaterialController = (value )=>{
+    console.log(" ...updateMeshPhysicalMaterialController.. ",value)
+  }
+
   return (
     <AppContext.Provider 
         value={{
+          ambientLight: ambientLight,
           select: select,
           geometry_data: geometry_data,
           onChangeSelect: onChangeSelect,
-          updateGeometry: updateGeometry,
+          pickLightColor: pickLightColor,
           position: position,
+          updateGeometry: updateGeometry,
           updatePosition: updatePosition,
-          testing: testing
+          updateToggleSwitch: updateToggleSwitch,
+          updateLightColor: updateLightColor,
+          testing: testing,
+
+          updateLightIntensity: updateLightIntensity,
+          lightIntensity: lightIntensity,
+          cameraPos: cameraPos,
+          updateCameraPos: updateCameraPos,
+
+          meshPhysicalMaterialController: meshPhysicalMaterialController,
+          updateMeshPhysicalMaterialController: updateMeshPhysicalMaterialController
         }}
     >
       {children}

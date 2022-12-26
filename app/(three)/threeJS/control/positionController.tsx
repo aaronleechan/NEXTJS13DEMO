@@ -1,6 +1,7 @@
 import { useAppContext } from "../../../context/AppContext";
+import XYZcontroller from "./xyzController";
 
-const PositionController = () => {
+const PositionController: any = () => {
 
     const { position,updatePosition } = useAppContext();
 
@@ -11,22 +12,17 @@ const PositionController = () => {
     }    
 
     return(
-        <div>
-            <a>
-                <label>X ({position.x}): </label>
-                <input name={"x"} type="range" min={-10} max={10} value={position.x} onChange={positionOnChange}/>
-            </a>
-
-            <a>
-                <label>Y ({position.y}): </label>
-                <input name={"y"} type="range" min={-10} max={10} value={position.y} onChange={positionOnChange}/>
-            </a>
-
-            <a>
-                <label>Z ({position.z}): </label>
-                <input name={"z"} type="range" min={-10} max={10} value={position.z} onChange={positionOnChange}/>
-            </a>
-        </div>
+        <>
+            <h1>This is Position Controller</h1>
+            <XYZcontroller 
+                x = {position.x}
+                xOnchange = {positionOnChange}
+                y = {position.y}
+                yOnchange = {positionOnChange}
+                z = {position.z}
+                zOnchange = {positionOnChange}
+            />
+        </>
     )
 
 }

@@ -3,8 +3,11 @@ import React, { useState } from 'react'
 import RenderGeometry from './RenderGeometry';
 import SelectComponent from '../../common/SelectComponent';
 import ControllerGeometry from './control/ControllerGeometry';
+import CameraController from './control/cameraController';
 import { AppWrapper } from '../../context/AppContext';
 import PositionController from './control/positionController';
+import AmbientLightController from './control/ambientLightController';
+import Collapsible from 'react-collapsible';
     
 
 const ThreeJS = () =>{
@@ -24,9 +27,24 @@ const ThreeJS = () =>{
                             <strong> Z </strong> axis is <a style={{color: "blue"}}>BLUE</a>.
                         </p>
                     </div>
-                    <PositionController/>
                     <SelectComponent />
-                    <ControllerGeometry/>
+
+                    <Collapsible trigger="Position Controller">
+                        <PositionController/>
+                    </Collapsible>
+
+                    <Collapsible trigger="Geometry Box Controller">
+                        <ControllerGeometry/>
+                    </Collapsible>
+
+                    <Collapsible trigger="Ambient Light Controller ">
+                        <AmbientLightController/>
+                    </Collapsible>
+
+                    <Collapsible trigger="Camera Controller">
+                        <CameraController />
+                    </Collapsible>
+
                 </>
                 <RenderGeometry />
             </AppWrapper>
