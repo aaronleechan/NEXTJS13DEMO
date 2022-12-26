@@ -30,7 +30,7 @@ const Cars = () =>{
                 />
                 </BoundingBox>
             </Dragable>
-            <Dragable transformGroup>
+            <Dragable >
                 <BoundingBox
                     position={[-8, 2, 0]}
                     offset={[0, 0, 0]}

@@ -29,13 +29,11 @@ const ShowRoom = () =>{
                 <ambientLight intensity={0.5} />
                 <OrbitControls attach='orbitControls'/>
                 <axesHelper args={[3]}/>
-
+                <Background />
                 <Physics>
                     <Cars />
-                    <Background />
                     <Floor/>
                 </Physics>
-
            </Canvas>
         </div>
     )
