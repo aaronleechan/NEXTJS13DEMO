@@ -10,7 +10,7 @@ import Cars from './cars';
 import CameraControl from './cameraControl';
 import CameraButton from './cameraButton';
 import Lights from './lights';
-import Effects from './effects';
+import ProcessingEffects from './processingEffects';
 
 const ShowRoom = () =>{
 
@@ -29,13 +29,13 @@ const ShowRoom = () =>{
                 <CameraControl />
                 <Lights />
                 <OrbitControls attach='orbitControls'/>
-                <axesHelper args={[3]}/>
+                {/* <axesHelper args={[3]}/> */}
                 <Background />
                 <Physics>
                     <Cars />
                     <Floor/>
                 </Physics>
-                <Effects />
+                <ProcessingEffects />
            </Canvas>
         </div>
     )

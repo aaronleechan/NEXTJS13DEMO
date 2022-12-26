@@ -1,7 +1,7 @@
 import React from "react"
 import { EffectComposer, DepthOfField, Bloom } from "@react-three/postprocessing";
 
-const Effects = () =>{
+const ProcessingEffects = () =>{
     return(
         <>
             <EffectComposer>
@@ -17,4 +17,4 @@ const Effects = () =>{
     )
 }
 
-export default Effects;
+export default ProcessingEffects;
