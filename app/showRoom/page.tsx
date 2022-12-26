@@ -36,6 +36,7 @@ const ShowRoom = () =>{
                     <Floor/>
                 </Physics>
                 <ProcessingEffects />
+
            </Canvas>
         </div>
     )
