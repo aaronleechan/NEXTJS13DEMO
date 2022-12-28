@@ -34,7 +34,6 @@ const CameraButton = () =>{
             return;
         }
         let current = currentState + num;
-        console.log({" current ": current})
         setCurrentState(current);
         {/* @ts-ignore */} 
         state.cameraPos.set(...sets[current].cameraPos)
