@@ -4,6 +4,7 @@ import { EffectComposer, DepthOfField, Bloom } from "@react-three/postprocessing
 const ProcessingEffects = () =>{
     return(
         <>
+            {/* The rest of your scene */}
             <EffectComposer>
                 <DepthOfField
                     focusDistance={0}

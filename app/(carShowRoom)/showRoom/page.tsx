@@ -11,7 +11,7 @@ import Cars from './cars';
 import CameraControl from './cameraControl';
 import CameraButton from './cameraButton';
 import Lights from './lights';
-import ProcessingEffects from './processingEffects';
+// import ProcessingEffects from './processingEffects';
 
 const ShowRoom = () =>{
 
@@ -36,7 +36,7 @@ const ShowRoom = () =>{
                     <Cars />
                     <Floor/>
                 </Physics>
-                <ProcessingEffects />
+                {/* <ProcessingEffects /> */}
 
            </Canvas>
         </div>
