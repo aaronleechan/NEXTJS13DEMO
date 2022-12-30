@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { useLoader } from '@react-three/fiber';
+import { useFrame, useLoader } from '@react-three/fiber';
 import { GLTFLoader } from 'three/examples/jsm/loaders/GLTFLoader';
 import { Mesh } from 'three';
 
@@ -19,6 +19,17 @@ export const Car = () => {
             }
         })
     },[gltf])
+
+    useFrame((state, delta) => {
+        let t = state.clock.getElapsedTime();
+
+        // let wheel = gltf.scene.children[0].children[0].children[0].children[0]
+        // console.log({" group ": wheel.children[0] })
+        // wheel.children[0].rotation.x = t * 0.001;
+        // wheel.children[2].rotation.x = t * 1;
+        // wheel.children[4].rotation.x = t * 1;
+        // wheel.children[6].rotation.x = t * 1;
+    });
 
     return <primitive object={gltf.scene}/>
 }

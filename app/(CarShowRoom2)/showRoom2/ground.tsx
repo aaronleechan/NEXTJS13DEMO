@@ -1,5 +1,5 @@
 import { MeshReflectorMaterial } from "@react-three/drei";
-import { useLoader } from "@react-three/fiber";
+import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect } from "react";
 import { TextureLoader } from "three";
 import { LinearEncoding, RepeatWrapping } from "three";
@@ -21,6 +21,13 @@ const Ground = () => {
 
         normal.encoding = LinearEncoding;
     },[normal, roughness]);
+
+    //Moving 
+    useFrame((state, delta)=>{
+        let t = -state.clock.getElapsedTime() * 0.68;
+        roughness.offset.set(0, t);
+        normal.offset.set(0, t);
+    });
 
     return(
         <mesh rotation-x={-Math.PI * 0.5} castShadow receiveShadow>
