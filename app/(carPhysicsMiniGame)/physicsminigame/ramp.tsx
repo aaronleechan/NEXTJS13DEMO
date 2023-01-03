@@ -5,6 +5,7 @@ import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 
 export function Ramp(){
     const result = useLoader(GLTFLoader, "/carPhysicsMiniGame/models/ramp.glb");
+    {/* @ts-ignore */} 
     const geometry = result.scene.children[0].geometry;
     const vertices = geometry.attributes.position.array;
     const indices = geometry.index.array;

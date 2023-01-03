@@ -1,6 +1,6 @@
 const debug = false;
 
-const WheelDebug = ({ radius, wheelRef }) => {
+const WheelDebug = ({ radius, wheelRef }: any) => {
     return debug && (
         <group ref={wheelRef}>
             <mesh rotation={[0, 0, Math.PI / 2]}>
