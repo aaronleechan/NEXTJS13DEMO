@@ -3,7 +3,7 @@ import { useFrame, useLoader } from "@react-three/fiber";
 import { useEffect, useRef } from "react";
 import { GLTFLoader } from "three/examples/jsm/loaders/GLTFLoader";
 import useWheels from "./useWheels";
-import WheelDebug from "./wheelDebug";
+// import WheelDebug from "./wheelDebug";
 import useControls from "./useControls";
 import { Quaternion, Vector3 } from "three";
 
@@ -89,13 +89,13 @@ const Car = ({ thirdPerson }: any) => {
             </mesh> */}
 
             {/* @ts-ignore */} 
-            <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} />
+            {/* <WheelDebug wheelRef={wheels[0]} radius={wheelRadius} /> */}
              {/* @ts-ignore */} 
-            <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} />
+            {/* <WheelDebug wheelRef={wheels[1]} radius={wheelRadius} /> */}
              {/* @ts-ignore */} 
-            <WheelDebug wheelRef={wheels[2]} radius={wheelRadius} />
+            {/* <WheelDebug wheelRef={wheels[2]} radius={wheelRadius} /> */}
              {/* @ts-ignore */} 
-            <WheelDebug wheelRef={wheels[3]} radius={wheelRadius} />
+            {/* <WheelDebug wheelRef={wheels[3]} radius={wheelRadius} /> */}
         </group>
     )
 }

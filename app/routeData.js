@@ -5,5 +5,6 @@ export const routeData = [
     {name: 'Car Show 2', path: '/showRoom2'},
     {name: 'Space Wrap', path: '/spacewrap'},
     {name: 'Env Blur Transition', path: '/envBlurTransition'},
-    {name: "Physics Car mini Game", path: "/physicsminigame"}
+    {name: "Physics Car mini Game", path: "/physicsminigame"},
+    // {name: "Car Moving ", path: "/carMoving"},
 ]
