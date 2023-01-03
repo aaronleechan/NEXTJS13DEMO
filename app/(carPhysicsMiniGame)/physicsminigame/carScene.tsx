@@ -35,7 +35,7 @@ const CarScene = () => {
 
     return(
         <Suspense fallback={null}>
-            <Environment    files={'/carPhysicsMiniGame/envMap.hdr'}    background/>
+            <Environment files={'/carPhysicsMiniGame/texture/envmap.hdr'}    background/>
             <PerspectiveCamera makeDefault position={[x, y, z]} />
             {!thirdPerson && (
                 <OrbitControls target={[-2.64, -0.71, 0.03]}/>
